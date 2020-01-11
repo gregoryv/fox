@@ -13,7 +13,7 @@ Package log provides loggers for writing messages.
     err = io.EOF
     filter.Log(err)
 */
-package log
+package fox
 
 import (
 	"fmt"
