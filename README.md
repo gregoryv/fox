@@ -1,4 +1,4 @@
-[log](https://godoc.org/github.com/gregoryv/log) - package provides a simple Logger interface
+[fox](https://godoc.org/github.com/gregoryv/fox) - package provides an alternate Logger design
 
 ## Quick start
 
