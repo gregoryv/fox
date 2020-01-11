@@ -55,7 +55,9 @@ func (l *SyncLog) FilterEmpty() *FilterEmpty {
 
 func (l *SyncLog) SetOutput(w io.Writer) { l.w = w }
 
-type FilterEmpty struct{ *SyncLog }
+type FilterEmpty struct {
+	sync *SyncLog
+}
 
 // Log calls the underlying logger only if v is non empty
 func (l *FilterEmpty) Log(v ...interface{}) {
@@ -71,5 +73,5 @@ func (l *FilterEmpty) Log(v ...interface{}) {
 	if out == "" {
 		return
 	}
-	l.SyncLog.Log(out)
+	l.sync.Log(out)
 }

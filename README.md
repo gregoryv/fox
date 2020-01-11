@@ -17,3 +17,7 @@ provides a Logger interface with one func only
     Log(v string)
 
 ![design overview](doc/design_overview.svg)
+
+The design separates focuses on separation.
+
+- SyncLog only writes messages to the output ensuring each one ends with a new line

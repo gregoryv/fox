@@ -1,9 +1,22 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
-  width="135" height="104" font-family="Arial, Helvetica, sans-serif">
+  width="333" height="238" font-family="Arial, Helvetica, sans-serif">
+<path stroke="black" d="M205,62 L135,62" />
+<g transform="rotate(180 205 62)"><path stroke="black" fill="#ffffff" d="M205,62 l 6,-4 6,4 -6,4 -6,-4" /></g>
+<g transform="rotate(180 135 62)"><path stroke="black" fill="#ffffff" d="M135,62 l-8,-4 l 0,8 Z" /></g>
+
 <rect stroke="#d3d3d3" fill="#ffffff" x="20" y="20" width="115" height="84"/>
 <line stroke="#d3d3d3" x1="20" y1="50" x2="135" y2="50"/><text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="26" y="66">FilterEmpty()</text>
 <text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="26" y="82">Log()</text>
 <text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="26" y="98">SetOutput()</text>
-<text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="26" y="40">fox.SyncLog struct</text></svg>
+<text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="26" y="40">fox.SyncLog struct</text>
+<rect stroke="#d3d3d3" fill="#ffffff" x="205" y="36" width="128" height="52"/>
+<line stroke="#d3d3d3" x1="205" y1="66" x2="333" y2="66"/><text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="211" y="82">Log()</text>
+<text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="211" y="56">fox.FilterEmpty struct</text>
+<rect stroke="#d3d3d3" fill="#ffffff" x="20" y="134" width="111" height="52"/>
+<line stroke="#d3d3d3" x1="20" y1="164" x2="131" y2="164"/><text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="26" y="180">Write()</text>
+<text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="26" y="154">io.Writer interface</text>
+<path stroke="black" d="M75,104 L75,134" />
+
+<text font-family="Arial,Helvetica,sans-serif" font-size="12px" x="11" y="232">1. Design of fox package and it&#39;s relation to io.Writer</text></svg>
