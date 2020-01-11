@@ -1,5 +1,7 @@
 [fox](https://godoc.org/github.com/gregoryv/fox) - package provides an alternate Logger design
 
+![fox logo](doc/logo-small.png)
+
 ## Quick start
 
     go get github.com/gregoryv/fox
