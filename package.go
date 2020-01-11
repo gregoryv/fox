@@ -1,17 +1,18 @@
 /*
-Package log provides loggers for writing messages.
+   Package log provides loggers for writing messages.
+   Simple usage is using the Log method as a first class citizen
 
-    std := NewSyncLog(os.Stdout)
-    std.Log("some", "nice", "message")
+      Log := NewSyncLog(os.Stdout).Log
+      Log("some", "nice", "message")
 
-    filter := std.FilterEmpty()
-    filter.Log("") // will not be logged
+   Logging errors can also be simplified with the filtered variation.
 
-    // Log errors only if there are any
-    var err error
-    filter.Log(err) // nothing, it's nil
-    err = io.EOF
-    filter.Log(err)
+      Log := NewSyncLog(os.Stdout).FilterEmpty().Log
+      Log("") // will not be logged
+
+      // Log errors only if there are any
+      Log(nil) // nothing, it's nil
+      Log(io.EOF)
 */
 package fox
 

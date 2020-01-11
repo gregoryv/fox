@@ -14,7 +14,7 @@ and use it with
 Based on the principle that interfaces should be kept small this package
 provides a Logger interface with one func only
 
-    Log(v string)
+    Log(v ...interface{})
 
 ![design overview](doc/design_overview.svg)
 
