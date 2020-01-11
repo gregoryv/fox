@@ -22,7 +22,7 @@ import (
 )
 
 func NewSyncLog(w io.Writer) *SyncLog {
-	return &SyncLog{Writer: w}
+	return &SyncLog{w: w}
 }
 
 type Logger interface {
@@ -30,20 +30,20 @@ type Logger interface {
 }
 
 type SyncLog struct {
-	sync.Mutex
-	io.Writer
+	mu sync.Mutex
+	w  io.Writer
 }
 
 // Log synchronizes calls to the underlying writer and makes sure
 // each message ends with one new line
 func (l *SyncLog) Log(v ...interface{}) {
 	out := fmt.Sprint(v...)
-	l.Lock()
-	fmt.Fprint(l, out)
+	l.mu.Lock()
+	fmt.Fprint(l.w, out)
 	if len(out) == 0 || out[len(out)-1] != newline {
-		l.Write([]byte{newline})
+		l.w.Write([]byte{newline})
 	}
-	l.Unlock()
+	l.mu.Unlock()
 }
 
 var newline byte = '\n'
@@ -53,7 +53,7 @@ func (l *SyncLog) FilterEmpty() *FilterEmpty {
 	return &FilterEmpty{l}
 }
 
-func (l *SyncLog) SetOutput(w io.Writer) { l.Writer = w }
+func (l *SyncLog) SetOutput(w io.Writer) { l.w = w }
 
 type FilterEmpty struct{ *SyncLog }
 
