@@ -21,6 +21,6 @@ provides a Logger interface with one func only
 
 ![design overview](doc/design_overview.svg)
 
-The design separates focuses on separation.
+The design focuses on separation between writing and formating
 
 - SyncLog only writes messages to the output ensuring each one ends with a new line
