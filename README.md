@@ -4,10 +4,13 @@
 
     go get github.com/gregoryv/fox
 
-and use it with
-
     Log := fox.NewSyncLog(os.Stdout).Log
 	Log("something")
+
+	func Test_thing(t *testing.T) {
+	   thingWith.Logger := t
+	   ...
+	}
 
 ## Design
 
