@@ -7,7 +7,7 @@ import (
 	"runtime"
 )
 
-// Info returns same as fmt.Sprint
+// Info returns same as fmt.Sprint, here for consistency
 func Info(v ...interface{}) string { return fmt.Sprint(v...) }
 
 // Info returns same as fmt.Sprintf
