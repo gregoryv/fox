@@ -11,3 +11,6 @@ case $extension in
 	go vet
 	;;
 esac
+
+go test -coverprofile .coverage ./...
+uncover .coverage
