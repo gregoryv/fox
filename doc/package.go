@@ -3,6 +3,7 @@ package doc
 import (
 	"io"
 
+	"github.com/gregoryv/draw/shape"
 	"github.com/gregoryv/draw/shape/design"
 	"github.com/gregoryv/fox"
 )
@@ -13,12 +14,15 @@ func DesignOverview() *design.ClassDiagram {
 		sync = d.Struct(fox.SyncLog{})
 		filt = d.Struct(fox.FilterEmpty{})
 		w    = d.Interface((*io.Writer)(nil))
+		log  = d.Interface((*fox.Logger)(nil))
 	)
 
-	d.Place(sync).At(20, 20)
+	d.Place(log).At(20, 20)
+	d.Place(sync).Below(log)
 	d.Place(filt).RightOf(sync, 70)
+	d.VAlignCenter(log, sync, w)
 	d.HideRealizations()
-
+	shape.Move(log, 80, 0)
 	d.Place(w).Below(sync)
 
 	lnk := d.Link(sync, w)
