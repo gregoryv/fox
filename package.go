@@ -1,5 +1,5 @@
 /*
-   Package log provides loggers for writing messages.
+   Package fox provides loggers with a simpler interface.
    Simple usage is using the Log method as a first class citizen
 
       Log := NewSyncLog(os.Stdout).Log
