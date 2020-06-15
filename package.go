@@ -13,6 +13,11 @@
       // Log errors only if there are any
       Log(nil) // nothing, it's nil
       Log(io.EOF)
+
+   Wrap the standard log package and it's default logger
+
+      Log := LoggerFunc(log.Println)
+	  Log("hello", "standard", "logger")
 */
 package fox
 
@@ -28,6 +33,12 @@ func NewSyncLog(w io.Writer) *SyncLog {
 
 type Logger interface {
 	Log(...interface{})
+}
+
+type LoggerFunc func(...interface{})
+
+func (me LoggerFunc) Log(args ...interface{}) {
+	me(args...)
 }
 
 type SyncLog struct {

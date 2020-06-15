@@ -1,6 +1,18 @@
 package fox
 
-import "os"
+import (
+	"log"
+	"os"
+)
+
+func ExampleLoggerFunc_Log() {
+	log.SetFlags(0)
+	log.SetOutput(os.Stdout)
+	std := LoggerFunc(log.Println)
+	std.Log("hello", "fox")
+	// output:
+	// hello fox
+}
 
 func ExampleSyncLog_Log() {
 	Log := NewSyncLog(os.Stdout).Log
