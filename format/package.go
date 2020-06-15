@@ -41,8 +41,10 @@ func Debugf(f string, v ...interface{}) string {
 	return debug(2, fmt.Sprintf(f, v...))
 }
 
+var Caller func(int) (uintptr, string, int, bool) = runtime.Caller
+
 func debug(calldepth int, v string) string {
-	_, file, line, ok := runtime.Caller(calldepth)
+	_, file, line, ok := Caller(calldepth)
 	if !ok {
 		return v
 	}
