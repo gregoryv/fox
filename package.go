@@ -1,23 +1,29 @@
 /*
-   Package fox provides loggers with a simpler interface.
-   Simple usage is using the Log method as a first class citizen
+Package fox provides loggers implementing the simple fox.Logger interface.
+The fox.Logger interface matches that of testing.T.Log method which
+makes it very easy to inject during testing.
 
-      Log := NewSyncLog(os.Stdout).Log
-      Log("some", "nice", "message")
 
-   Logging errors can also be simplified with the filtered variation.
+Example usage
 
-      Log := NewSyncLog(os.Stdout).FilterEmpty().Log
-      Log("") // will not be logged
+Use the Log method as a first class citizen
 
-      // Log errors only if there are any
-      Log(nil) // nothing, it's nil
-      Log(io.EOF)
+  Log := NewSyncLog(os.Stdout).Log
+  Log("some", "nice", "message")
 
-   Wrap the standard log package and it's default logger
+and warnings are simplified by filtering out empty values
 
-      Log := LoggerFunc(log.Println)
-	  Log("hello", "standard", "logger")
+  warn := NewSyncLog(os.Stdout).FilterEmpty().Log
+  warn("") // will not be logged
+
+  // Log errors only if there are any
+  warn(nil) // nothing, it's nil
+  warn(io.EOF)
+
+Wrap the standard log package and it's default logger
+
+  Log := LoggerFunc(log.Println)
+  Log("hello", "standard", "logger")
 */
 package fox
 
