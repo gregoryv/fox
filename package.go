@@ -68,13 +68,18 @@ var newline byte = '\n'
 
 // FilterEmpty returns a wrapper filtering out empty and nil values
 func (l *SyncLog) FilterEmpty() *FilterEmpty {
-	return &FilterEmpty{l}
+	return NewFilterEmpty(l)
 }
 
 func (l *SyncLog) SetOutput(w io.Writer) { l.w = w }
 
+// NewFilterEmpty wraps the given logger with a filter for empty values.
+func NewFilterEmpty(l Logger) *FilterEmpty {
+	return &FilterEmpty{l}
+}
+
 type FilterEmpty struct {
-	sync *SyncLog
+	sync Logger
 }
 
 // Log calls the underlying logger only if v is non empty
