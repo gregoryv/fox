@@ -1,5 +1,5 @@
 /*
-   Package format generates strings for logging
+Package format generates strings for logging.
 
       import (
          "github.com/gregoryv/fox"
@@ -9,8 +9,9 @@
       Log := fox.NewSyncLog(os.Stdout).Log
       Log(Debugf("failed: %v", err))
 
-   Debug and Debugf include the name of file and lineno of where they where called
-   similar but not the same as using the builtin log package with Lshortfile
+Debug and Debugf include the name of file and line number of where
+they where called similar but not the same as using the builtin log
+package with Lshortfile
 
       log := New(os.Stdout, "", Lshortfile)
       log.Printf("failed: %v", err)
