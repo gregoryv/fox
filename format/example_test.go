@@ -1,19 +1,22 @@
 package format_test
 
 import (
-	"fmt"
+	"os"
 
+	"github.com/gregoryv/fox"
 	. "github.com/gregoryv/fox/format"
 )
 
 func ExampleDebug() {
-	fmt.Println(Debug("hello"))
+	log := fox.NewSyncLog(os.Stdout).Log
+	log(Debug("hello"))
 	// output:
-	// format/example_test.go:10: hello
+	// format/example_test.go:12: hello
 }
 
 func ExampleDebugf() {
-	fmt.Println(Debugf("Hello, %s", "world!"))
+	log := fox.NewSyncLog(os.Stdout).Log
+	log(Debugf("Hello, %s", "world!"))
 	// output:
-	// format/example_test.go:16: Hello, world!
+	// format/example_test.go:19: Hello, world!
 }
