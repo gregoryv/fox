@@ -3,8 +3,8 @@ package doc
 import (
 	"io"
 
+	"github.com/gregoryv/draw/design"
 	"github.com/gregoryv/draw/shape"
-	"github.com/gregoryv/draw/shape/design"
 	"github.com/gregoryv/fox"
 )
 
