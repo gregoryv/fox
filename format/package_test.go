@@ -18,9 +18,9 @@ func Test_level_funcs(t *testing.T) {
 	ok(equals(Debug("x"), "format/package_test.go:18: x"))
 	ok(equals(Debugf("debug x"), "format/package_test.go:19: debug x"))
 
-	Caller = BrokenCaller
+	caller = BrokenCaller
 	ok(equals(Debug("x"), "x"))
-	Caller = runtime.Caller // Reset for subsequent tests
+	caller = runtime.Caller // Reset for subsequent tests
 }
 
 func equals(a, b interface{}) error {

@@ -8,12 +8,12 @@ Example usage
 
 Use the Log method as a first class citizen
 
-  Log := NewSyncLog(os.Stdout).Log
+  Log := fox.NewSyncLog(os.Stdout).Log
   Log("some", "nice", "message")
 
 and warnings are simplified by filtering out empty values
 
-  warn := NewSyncLog(os.Stdout).FilterEmpty().Log
+  warn := fox.NewSyncLog(os.Stdout).FilterEmpty().Log
   warn("") // will not be logged
 
   // Log errors only if there are any
@@ -22,7 +22,7 @@ and warnings are simplified by filtering out empty values
 
 Wrap the standard log package and it's default logger
 
-  Log := LoggerFunc(log.Println)
+  Log := fox.LoggerFunc(log.Println)
   Log("hello", "standard", "logger")
 */
 package fox

@@ -32,7 +32,8 @@ func Info(v ...interface{}) string { return fmt.Sprint(v...) }
 func Infof(f string, v ...interface{}) string { return fmt.Sprintf(f, v...) }
 
 // Debug prefixes the message with file information.
-// In the form parent/file:lineno: message
+// In the form parent/file:lineno: message.
+// Returns only message if file information is not available.
 func Debug(v ...interface{}) string {
 	return debug(2, fmt.Sprint(v...))
 }
@@ -42,10 +43,11 @@ func Debugf(f string, v ...interface{}) string {
 	return debug(2, fmt.Sprintf(f, v...))
 }
 
-var Caller func(int) (uintptr, string, int, bool) = runtime.Caller
+// Here so we can test behaviour of debug formats
+var caller func(int) (uintptr, string, int, bool) = runtime.Caller
 
 func debug(calldepth int, v string) string {
-	_, file, line, ok := Caller(calldepth)
+	_, file, line, ok := caller(calldepth)
 	if !ok {
 		return v
 	}
