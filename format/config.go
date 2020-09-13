@@ -29,7 +29,7 @@ type Config struct {
 func (me *Config) SetPrefix(v string) { me.prefix = v }
 
 // Stamp turns timestamps on
-func (me *Config) Stamp() { me.stamp = true }
+func (me *Config) UseTimestamp() { me.stamp = true }
 
 // Info returns same as fmt.Sprint, here for consistency
 func (me *Config) Info(v ...interface{}) string {

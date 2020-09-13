@@ -31,7 +31,7 @@ func ExampleInfo() {
 		Logger: fox.NewSyncLog(os.Stdout),
 		Config: format.NewConfig(),
 	}
-	me.Config.Stamp()
+	me.Config.UseTimestamp()
 	me.Config.SetPrefix("[Car x]")
 
 	me.Log(me.Info("got a time"))
