@@ -16,6 +16,11 @@ type RouteLog struct {
 	fox.Logger
 }
 
+// MiddlewareFunc returns a middleware that logs request and response status.
+func (me *RouteLog) MiddlewareFunc(next http.HandlerFunc) http.Handler {
+	return me.Middleware(next)
+}
+
 // Middleware returns a middleware that logs request and response status.
 func (me *RouteLog) Middleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {

@@ -10,11 +10,11 @@ import (
 func TestRouteLog_middleware(t *testing.T) {
 	log := NewRouteLog(t)
 	var called bool
-	next := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	next := func(w http.ResponseWriter, r *http.Request) {
 		called = true
 		w.WriteHeader(http.StatusBadRequest)
-	})
-	handler := log.Middleware(next)
+	}
+	handler := log.MiddlewareFunc(next)
 	assert := asserter.New(t)
 	exp := assert().ResponseFrom(handler)
 
