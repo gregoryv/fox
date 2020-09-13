@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [unreleased]
 
+- Add RouteLog http middleware
 - Add NoLogger for default empty loggers
 
 ## [0.4.0] 2020-09-12
