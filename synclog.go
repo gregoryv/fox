@@ -28,12 +28,8 @@ type SyncLog struct {
 // Log synchronizes calls to the underlying writer and makes sure
 // each message ends with one new line
 func (l *SyncLog) Log(v ...interface{}) {
-	out := fmt.Sprint(v...)
 	l.mu.Lock()
-	fmt.Fprint(l.w, out)
-	if len(out) == 0 || out[len(out)-1] != newline {
-		l.w.Write([]byte{newline})
-	}
+	fmt.Fprintln(l.w, v...)
 	l.mu.Unlock()
 }
 
