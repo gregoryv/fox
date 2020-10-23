@@ -28,3 +28,13 @@ Wrap the standard log package and it's default logger
 package fox
 
 var NoLogger Logger = LoggerFunc(func(v ...interface{}) {})
+
+type Logger interface {
+	Log(...interface{})
+}
+
+type LoggerFunc func(...interface{})
+
+func (me LoggerFunc) Log(args ...interface{}) {
+	me(args...)
+}

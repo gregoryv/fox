@@ -10,16 +10,6 @@ func NewSyncLog(w io.Writer) *SyncLog {
 	return &SyncLog{w: w}
 }
 
-type Logger interface {
-	Log(...interface{})
-}
-
-type LoggerFunc func(...interface{})
-
-func (me LoggerFunc) Log(args ...interface{}) {
-	me(args...)
-}
-
 type SyncLog struct {
 	mu sync.Mutex
 	w  io.Writer
