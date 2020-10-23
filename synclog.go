@@ -23,11 +23,13 @@ func (l *SyncLog) Log(v ...interface{}) {
 	l.mu.Unlock()
 }
 
-var newline byte = '\n'
+func (l *SyncLog) SetOutput(w io.Writer) {
+	l.mu.Lock()
+	l.w = w
+	l.mu.Unlock()
+}
 
 // FilterEmpty returns a wrapper filtering out empty and nil values
 func (l *SyncLog) FilterEmpty() *FilterEmpty {
 	return NewFilterEmpty(l)
 }
-
-func (l *SyncLog) SetOutput(w io.Writer) { l.w = w }
