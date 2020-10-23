@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [unreleased]
 
+- Add type Logging to use loggers as settings
 - Fix missing space when logging two consecutive strings
 
 ## [0.5.0] 2020-09-13

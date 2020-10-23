@@ -27,6 +27,8 @@ Wrap the standard log package and it's default logger
 */
 package fox
 
+import "fmt"
+
 var NoLogger Logger = LoggerFunc(func(v ...interface{}) {})
 
 type Logger interface {
@@ -37,4 +39,23 @@ type LoggerFunc func(...interface{})
 
 func (me LoggerFunc) Log(args ...interface{}) {
 	me(args...)
+}
+
+// Logging implements github.com/gregoryv/ant Setting interface
+type Logging struct {
+	Logger
+}
+
+func (me Logging) Set(v interface{}) error {
+	switch v := v.(type) {
+	case usesLogger:
+		v.SetLogger(me.Logger)
+	default:
+		return fmt.Errorf("failed to set %T on %T", me, v)
+	}
+	return nil
+}
+
+type usesLogger interface {
+	SetLogger(Logger)
 }
