@@ -1,3 +1,5 @@
+ARCHIVED! Moved to https://sogvin.com/fox
+
 [fox](https://godoc.org/github.com/gregoryv/fox) - package provides an alternate Logger design
 
 ![fox logo](doc/logo-small.png)
